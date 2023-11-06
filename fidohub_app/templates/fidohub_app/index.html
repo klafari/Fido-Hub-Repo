@@ -1,0 +1,12 @@
+{% extends 'fidohub_app/base_template.html' %}
+
+{% block content %}
+  <h1>welcome to fidohub!</h1>
+
+  <p>
+    <a class="btn btn-success" href="{% url 'clients' %}" role="button">Explore Clients</a>
+  </p>
+  <p>
+    <a class="btn btn-success" href="{% url 'dogs' %}" role="button">Meet the Dogs</a>
+  </p>
+{% endblock %}

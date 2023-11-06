@@ -1,0 +1,16 @@
+{% extends 'fidohub_app/base_template.html' %}
+
+{% block content %}
+  <h1>Client List</h1>
+  {% if client_list %}
+    <ul>
+      {% for client in client_list %}
+        <li>
+          <a href="{{ client.get_absolute_url }}">{{ client.name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no clients registered.</p>
+  {% endif %}
+{% endblock %}

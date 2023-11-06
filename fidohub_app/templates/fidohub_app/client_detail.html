@@ -1,0 +1,28 @@
+{% extends 'fidohub_app/base_template.html' %}
+
+{% block content %}
+  <h1>{{ client.name }}</h1>
+  <p>
+    <strong>Contact Email:</strong> {{ client.email }}
+  </p>
+
+  <h2>{{ client.name }}'s dogs</h2>
+  <a class="btn btn-success" href="{% url 'create-dog' client.id %}" role="button">Register</a>
+
+  {% if dog_list %}
+    <ul>
+      {% for dog in client.dog_set.all %}
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{ dog.name }}</h5>
+            <a class="btn btn-success" href="{{ dog.get_absolute_url }}" role="button">View</a>
+            <a class="btn btn-success" href="{% url 'delete-dog' client.id dog.id %}" role="button">Remove</a>
+            <a class="btn btn-success" href="{% url 'update-dog' client.id dog.id %}" role="button">Update</a>
+          </div>
+        </div>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no dogs registered.</p>
+  {% endif %}
+{% endblock %}

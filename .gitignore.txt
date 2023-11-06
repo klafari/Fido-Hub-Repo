@@ -1,0 +1,5 @@
+# Environments
+/djvenv
+fido_hub/__pycache__
+fido_hub/migrations/__pycache__
+db.sqlite3
