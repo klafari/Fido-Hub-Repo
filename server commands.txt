@@ -3,3 +3,8 @@ myvenv\Scripts\activate.bat
 py manage.py makemigrations
 py manage.py migrate
 py manage.py runserver
+
+# for tests
+cd C:\Users\ferfe\Desktop\2023 UCCS projects fall\CS 3300 Intro to Software Engineering\Fido Hub
+myvenv\Scripts\activate.bat
+py manage.py test
