@@ -3,14 +3,18 @@
 
 {% block content %}
   <div class="index-header">
-    <!--<img src="{% static 'images/index_header_photo.jpg' %}" class="img-fluid" alt="..." />-->
-    <h1>welcome to fidohub!</h1>
+    <img src="{% static 'images/index_banner.png' %}" class="img-fluid" alt="..." />
+    <br />
+    <br />
+    <h1>Welcome to FidoHub!</h1>
   </div>
 
   <div class="index-body">
+    <br />
     <p>
-      <a class="btn btn-success" href="{% url 'clients' %}" role="button">Explore Clients</a>
+      <a class="btn btn-success" href="{% url 'dogwalkers' %}" role="button">Meet the Dog Walkers</a>
     </p>
+    <br />
     <p>
       <a class="btn btn-success" href="{% url 'dogs' %}" role="button">Meet the Dogs</a>
     </p>

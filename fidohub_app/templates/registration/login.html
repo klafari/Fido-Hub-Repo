@@ -1,11 +1,9 @@
-<!-- inherit from base.html -->
-{% extends 'portfolio_app/base_template.html' %}
+{% extends 'fidohub_app/base_template.html' %}
 
 {% block content %}
-
-  <!-- doesn't work correctly - do not want to do all messages-->
+  <!-- doesn't work correctly - do not want to do all messages -->
   {% for message in messages %}
-    <p>{{message}}</p>
+    <p>{{ message }}</p>
   {% endfor %}
 
   {% if form.errors %}
@@ -14,8 +12,7 @@
 
   {% if next %}
     {% if user.is_authenticated %}
-      <p>Your account doesn't have access to this page. To proceed,
-      please login with an account that has access.</p>
+      <p>Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
     {% else %}
       <p>Please login to see this page.</p>
     {% endif %}
@@ -33,12 +30,13 @@
         <td>{{ form.password }}</td>
       </tr>
     </table>
-    <input type="submit" value="login">
-    <input type="hidden" name="next" value="{{ next }}">
+    <input type="submit" value="Login" />
+    <input type="hidden" name="next" value="{{ next }}" />
   </form>
 
   {# Assumes you setup the password_reset view in your URLconf #}
-  <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
-  <!-- <p><a href="{% url 'register_page' %}">Register</a></p> -->
-
+  <br />
+  <p>
+    <a href="{% url 'register-page' %}">Register</a>
+  </p>
 {% endblock %}

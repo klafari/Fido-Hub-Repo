@@ -1,0 +1,16 @@
+{% extends 'fidohub_app/base_template.html' %}
+
+{% block content %}
+  <h1>Dog Walker List</h1>
+  {% if dogwalker_list %}
+    <ul>
+      {% for dogwalker in dogwalker_list %}
+        <li>
+          <a href="{{ dogwalker.get_absolute_url }}">{{ dogwalker.name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no dog walkers registered.</p>
+  {% endif %}
+{% endblock %}

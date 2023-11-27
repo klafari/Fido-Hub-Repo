@@ -6,6 +6,6 @@
   <form method="post" action="{% url 'delete-dog' dog.owner.id dog.id %}">
     <a class="btn btn-success" href="{% url 'client-detail' dog.owner.id %}" role="button">Cancel</a>
     {% csrf_token %}
-    <input class="btn btn-success" type="submit" value="Confirm">
+    <input class="btn btn-success" type="submit" value="Confirm" />
   </form>
 {% endblock %}

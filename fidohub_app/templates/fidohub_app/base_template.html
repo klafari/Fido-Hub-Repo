@@ -11,10 +11,10 @@
   </head>
 
   <style>
-    .index-header{
+    .index-header {
       text-align: center;
     }
-    .index-body{
+    .index-body {
       text-align: center;
     }
   </style>
@@ -24,7 +24,7 @@
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <img src="{% static 'images/fidohub_logo.png' %}">
+          <img src="{% static 'images/fidohub_logo.png' %}" />
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
@@ -35,14 +35,20 @@
                 <a class="nav-link" href="{% url 'clients' %}">Clients</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'index' %}">Dog Walkers</a>
+                <a class="nav-link" href="{% url 'dogwalkers' %}">Dog Walkers</a>
+              </li>
+              <li>
+                {% if user.is_authenticated %}
+                  <a class="nav-link" href="{% url 'logout' %}?next={{ request.path }}">Logout {{ user }}</a>
+                {% else %}
+                  <a class="nav-link" href="{% url 'login' %}?next={{ request.path }}">Login</a>
+                {% endif %}
               </li>
             </ul>
           </div>
         </div>
       </nav>
 
-      <!-- add block content from html template -->
       {% block content %}
 
       {% endblock %}
