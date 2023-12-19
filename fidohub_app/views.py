@@ -131,11 +131,13 @@ def registerPage(request):
 
         if form.is_valid():
 
+            # save user information
             user = form.save()
             username = form.cleaned_data.get('username')
             group = Group.objects.get(name='client_role')
             user.groups.add(group)
 
+            # create client to go with the user
             client = Client.objects.create(user=user)
             client.name = username
             client.email = form.cleaned_data.get('email')
